@@ -1,16 +1,16 @@
 # DevPSU - Discord Bot
 
 ## Table of Contents
-* [Overview] (https://github.com/nic-che/dev_chatbot#table-of-contents#overview)
-* [Function Implementations] (https://github.com/nic-che/dev_chatbot#table-of-contents#function-implementations)
-* [Commands] (https://github.com/nic-che/dev_chatbot#table-of-contents#commands)
+* [Overview](https://github.com/nic-che/dev_chatbot#table-of-contents#overview)
+* [Function Implementations](https://github.com/nic-che/dev_chatbot#table-of-contents#function-implementations)
+* [Commands](https://github.com/nic-che/dev_chatbot#table-of-contents#commands)
 
-## Overview
+### Overview
 
-## Function Implementations
+### Function Implementations
 
-## Commands
-#### places
+### Commands
+##### places
 To find a place of any type (e.g., restaurant, museum, hotel) near you:
 `find <place> near me`
 
@@ -21,6 +21,6 @@ To sort by popularity, simply include `by popularity` at the end of either of th
 
 To sort by distance, simply include `by distance` at the end of either of the previous statements.
 
-#### translate
+##### translate
 
-#### weather
+##### weather
