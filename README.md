@@ -1,9 +1,9 @@
 # DevPSU - Discord Bot
 
 ## Table of Contents
-* [Overview] (#overview)
-* [Function Implementations] (#function-implementations)
-* [Commands] (#commands)
+* [Overview] (https://github.com/nic-che/dev_chatbot#table-of-contents#overview)
+* [Function Implementations] (https://github.com/nic-che/dev_chatbot#table-of-contents#function-implementations)
+* [Commands] (https://github.com/nic-che/dev_chatbot#table-of-contents#commands)
 
 ## Overview
 
