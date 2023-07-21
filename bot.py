@@ -40,7 +40,7 @@ class DevPSUBot(discord.Client):
             i = 1
             msg = ''
 
-            #translate (string) to (language)           # need space to separate colon and return msg (spanish:saludos amigo)
+            #translate (string) to (language)
             if 'to' in message.content:
                 if message_list[-1] == 'to':
                     await message.channel.send("Invalid command usage")

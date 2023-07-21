@@ -28,4 +28,4 @@ def translator_func(msg, language='english'):
     if lc == 'None':
         return 'Language not found.'
 
-    return language + ":" + translator.translate(text=msg, dest=lc).text
+    return language.capitalize() + ": " + translator.translate(text=msg, dest=lc).text
