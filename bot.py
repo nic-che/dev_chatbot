@@ -1,7 +1,11 @@
+#python bot.py
 import os
 import discord
 from dotenv import load_dotenv
+from typing import Union
+from discord import Message
 from Bot_Functions import translate, places, weather
+from ttt import ttt
 
 load_dotenv()
 token = os.getenv('TOKEN')
@@ -12,6 +16,7 @@ intents.message_content = True
 class DevPSUBot(discord.Client):
     async def on_ready(self):       # runs events based on action
         print("logged on!")
+        self.state = "message"
         self.units = "imperial"
         self.unitList = ['imperial', 'standard', 'metric']
 
@@ -35,7 +40,7 @@ class DevPSUBot(discord.Client):
             i = 1
             msg = ''
 
-            #translate (string) to (language)
+            #translate (string) to (language)           # need space to separate colon and return msg (spanish:saludos amigo)
             if 'to' in message.content:
                 if message_list[-1] == 'to':
                     await message.channel.send("Invalid command usage")
@@ -123,11 +128,50 @@ class DevPSUBot(discord.Client):
             
             await message.channel.send(weather.find_weather(location, self.units))
 
-
+        #implement tic tac toe
+        #END GAME after n mins
+        if message.content == "ttt":
+                        #if failed, change ttti to ttt1, ttt1 to ttt2 (already changed; if broken, switch back)
+            self.state = "ttt1"
+            self.player_1 = message.author
+            await message.channel.send(f"Player 1 is {self.player_1}.")
+            await message.channel.send(f"Please mention player 2.")
+        if self.state == "ttt1" and message.author == self.player_1 and len(message.mentions) == 1:
+            self.state = "ttt2"
+            self.player_2 = message.mentions[0]
+            await message.channel.send(f"Player 2 is {self.player_2}.")
+            await message.channel.send("Use the numberpad for the input:\n```7 | 8 | 9\n--+---+--\n4 | 5 | 6\n--+---+--\n1 | 2 | 3\n```")
+            await message.channel.send(f"{self.player_1}'s turn.")
+            self.game = ttt()
+        
+        if message.content in {'1', '2', '3', '4', '5', '6', '7', '8', '9'} and self.state in {"ttt1", "ttt2"} and message.author in {self.player_1, self.player_2}:
+            status = self.game.update_board(message.content, self.state)
+            if status == -1:
+                await message.channel.send("Invalid position; please try again.")
+            elif status == 0:
+                await message.channel.send(format_board(self.game.board))
+                if self.state == "ttt1":
+                    self.state == "ttt2"
+                    await message.channel.send(f"{self.player_2}'s turn")       # Return to these lines; if players are not specifically mentioned, @
+                else:
+                    self.state = "ttt1"
+                    await message.channel.send(f"{self.player_1}'s turn")
+            elif status == 1:
+                await message.channel.send(format_board(self.game.board))
+                await message.channel.send(f"Player {self.state[3]} wins!")
+                self.state = "message"
+            elif status == 2:
+                await message.channel.send(format_board(self.game.board))
+                await message.channel.send(f"Stalemate!")
+                self.state = "message"
 
     async def on_typing(self, channel, user, when):
         print(f"{user} is typing in {channel} at {when}")
         await channel.send(f"I see you typing, {user}")
+
+#depending on user responses, reformat board beginning from index 1?
+def format_board(x):
+    return f"```{x[0]} | {x[1]} | {x[2]}\n--+---+--\n{x[3]} | {x[4]} | {x[5]}\n--+---+--\n{x[6]} | {x[7]} | {x[8]}"
 
 
 client = DevPSUBot(intents=intents)
