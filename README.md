@@ -4,7 +4,7 @@
 * [Overview](https://github.com/nic-che/dev_chatbot#overview)
 * [Function Implementations](https://github.com/nic-che/dev_chatbot#function-implementations)
 * [Commands](https://github.com/nic-che/dev_chatbot#commands)
-* [Credits] (https://github.com/nic-che/dev_chatbot#credits)
+* [Credits](https://github.com/nic-che/dev_chatbot#credits)
 
 ### Overview
 
