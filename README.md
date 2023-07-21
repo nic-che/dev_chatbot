@@ -7,13 +7,10 @@
 * [Credits](https://github.com/nic-che/dev_chatbot#credits)
 
 ### Overview
-===
 
 ### Function Implementations
-===
 
 ### Commands
-===
 
 - typing
     - When a user types into the chat, the bot will identify the action and announce "I see you typing, [@user]"
@@ -29,10 +26,10 @@
 
 - places
     - To find a place of any type (e.g., restaurant, museum, hotel) near you:\
-        - > find <place> near me
+    > find <place> near me
 
     - To find a place in a certain location (e.g., boston, california, brooklyn):\
-        - > find <place> in <location>
+    > find <place> in <location>
 
     - To sort by popularity, simply include `by popularity` at the end of either of the previous statements.
 
@@ -46,4 +43,3 @@
 
 
 ### Credits
-===
