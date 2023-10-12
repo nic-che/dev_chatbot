@@ -1,4 +1,4 @@
-# DevPSU - Discord Bot
+# DevPSU - Discord ChatBot
 
 ## Table of Contents
 * [Overview](https://github.com/nic-che/dev_chatbot#overview)
